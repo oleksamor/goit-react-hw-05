@@ -2,6 +2,17 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import { Routes, Route, NavLink } from "react-router-dom";
+import clsx from "clsx";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Products from "./pages/Products";
+import NotFound from "./pages/NotFound";
+import {
+  createBrowserHistory,
+  createHashHistory,
+  createMemoryHistory,
+} from "history";
 
 function App() {
   const [count, setCount] = useState(0);
