@@ -20,7 +20,7 @@ const MoviesPage = () => {
   }, []);
   return (
     <>
-      <MovieList />
+      <MovieList movies={movies} />
     </>
   );
 };
