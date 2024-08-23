@@ -14,24 +14,7 @@ export const fetchMovies = async (searchValue = "Lion King") => {
   };
   try {
     const res = await axios.get(url, options);
-    console.log(res.data.results);
-    return res.data.results;
-  } catch (err) {
-    console.log(err);
-  }
-};
 
-export const fetchPopularMovies = async () => {
-  const url = "https://api.themoviedb.org/3/trending/movie/day";
-
-  const options = {
-    headers: {
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkZjg2ZDhlOWEwYzBhODRmODMxMGUzYWNiYjM1YmUyZCIsIm5iZiI6MTcyNDQyMDg4NS4zMjY4MzEsInN1YiI6IjY2OWZjYzNhZTMyZTg5NmQ2NjUyNzVhNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qgMNVys-dP0mtn9s8IuxhfWW5GjXC6Z2JiGZ9-ZzRBY",
-    },
-  };
-  try {
-    const res = await axios.get(url, options);
     return res.data.results;
   } catch (err) {
     console.log(err);
@@ -50,6 +33,22 @@ export const fetchMoviesById = async (movie_id) => {
   try {
     const res = await axios.get(url, options);
     return res.data;
+  } catch (err) {
+    console.log(err);
+  }
+};
+export const fetchPopularMovies = async () => {
+  const url = "https://api.themoviedb.org/3/trending/movie/day";
+
+  const options = {
+    headers: {
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkZjg2ZDhlOWEwYzBhODRmODMxMGUzYWNiYjM1YmUyZCIsIm5iZiI6MTcyNDQyMDg4NS4zMjY4MzEsInN1YiI6IjY2OWZjYzNhZTMyZTg5NmQ2NjUyNzVhNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qgMNVys-dP0mtn9s8IuxhfWW5GjXC6Z2JiGZ9-ZzRBY",
+    },
+  };
+  try {
+    const res = await axios.get(url, options);
+    return res.data.results;
   } catch (err) {
     console.log(err);
   }
