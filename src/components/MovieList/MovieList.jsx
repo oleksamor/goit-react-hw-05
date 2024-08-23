@@ -2,7 +2,7 @@ import React from "react";
 import s from "./MovieList.module.css";
 
 const MovieList = ({ movies = [] }) => {
-  return <div>MovieList</div>;
+  return <div>Movies List</div>;
 };
 
 export default MovieList;

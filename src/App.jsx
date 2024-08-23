@@ -1,11 +1,12 @@
 import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
-
-// import { Routes, Route, NavLink } from "react-router-dom";
+import { Routes, Route, NavLink } from "react-router-dom";
 import clsx from "clsx";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
-import { Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage/HomePage";
+import MoviesPage from "./pages/MoviesPage/MoviesPage";
+
 function App() {
   // const [count, setCount] = useState(0);
 
@@ -13,8 +14,9 @@ function App() {
     <div>
       <Header />
       <Routes>
-        <Route path="/" element={<h2>Home Page</h2>} />
-        <Route path="/MovieList" element={<h2>Movies Page</h2>} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/MoviesPage" element={<MoviesPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
   );
