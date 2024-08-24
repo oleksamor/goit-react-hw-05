@@ -37,6 +37,7 @@ export const fetchMoviesById = async (movie_id) => {
     console.log(err);
   }
 };
+
 export const fetchPopularMovies = async () => {
   const url = "https://api.themoviedb.org/3/trending/movie/day";
 

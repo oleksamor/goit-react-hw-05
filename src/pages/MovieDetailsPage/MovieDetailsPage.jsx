@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchCastById } from "../../services/api";
+import Loader from "../../components/Loader/Loader.jsx";
 
 const MovieDetailsPage = () => {
   const params = useParams();
@@ -10,11 +11,16 @@ const MovieDetailsPage = () => {
   useEffect(() => {
     fetchCastById(params.movieId).then((data) => setMovie(data));
   }, [params.movieId]);
-  console.log("movie...", movie);
+  if (!movie) {
+    <Loader />;
+    return;
+  }
+  console.log("movie------> ", movie);
   return (
     <div>
       <p>Movie Details Page.... #{params.movieId}</p>
-      {/* <h2>{movie.name}</h2> */}
+      {/* console.log("movie.name...", movie.title); */}
+      <h2>alalalalal{movie.title}</h2>
     </div>
   );
 };
