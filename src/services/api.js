@@ -38,7 +38,7 @@ export const fetchMoviesById = async (movie_id) => {
   }
 };
 
-export const fetchPopularMovies = async () => {
+export const fetchTrendingMovies = async () => {
   const url = "https://api.themoviedb.org/3/trending/movie/day";
 
   const options = {

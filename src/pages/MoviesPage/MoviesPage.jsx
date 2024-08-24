@@ -1,27 +1,37 @@
 import React from "react";
 import s from "./MoviesPage.module.css";
+import SearchBar from "../../components/SearchBar/SearchBar";
 import MovieList from "../../components/MovieList/MovieList";
 import { useEffect, useState } from "react";
-// import toast, { Toaster } from "react-hot-toast";
 import fetchMovies from "../../services/api";
+import { useSearchParams } from "react-router-dom";
 
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const filterValue = searchParams.get("query") ?? "";
+
+  const onSubmit = (newValue) => {
+    setSearchParams({ query: newValue });
+  };
+
   useEffect(() => {
-    try {
-      const getData = async () => {
+    const getData = async () => {
+      try {
         const data = await fetchMovies();
         setMovies(data);
-      };
-      getData();
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getData();
+  }, [filterValue]);
   return (
-    <>
+    <div className={s.list}>
+      <SearchBar filterValue={filterValue} onSubmit={onSubmit} />
       <MovieList movies={movies} />
-    </>
+    </div>
   );
 };
 

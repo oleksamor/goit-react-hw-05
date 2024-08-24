@@ -5,9 +5,11 @@ import { useParams, NavLink, Outlet } from "react-router-dom";
 import { fetchCastById } from "../../services/api";
 import Loader from "../../components/Loader/Loader.jsx";
 import s from "./MovieDetailsPage.module.css";
+
 const MovieDetailsPage = () => {
   const params = useParams();
   const [movie, setMovie] = useState(null);
+
   useEffect(() => {
     fetchCastById(params.movieId).then((data) => setMovie(data));
   }, [params.movieId]);
