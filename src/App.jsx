@@ -1,8 +1,8 @@
-import { useState } from "react";
+import MovieReviews from ".//components/MovieReviews/MovieReviews";
 import "./App.css";
 import Header from "./components/Header/Header";
 import { Routes, Route, NavLink } from "react-router-dom";
-import clsx from "clsx";
+import MovieCast from ".//components/MovieCast/MovieCast";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import HomePage from "./pages/HomePage/HomePage";
 import MoviesPage from "./pages/MoviesPage/MoviesPage";
@@ -19,8 +19,8 @@ function App() {
         <Route path="/movies" element={<MoviesPage />} />
 
         <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
-          {/* <Route path="cast" element={<MovieCast />} />
-          <Route path="reviews" element={<MovieReviews />} /> */}
+          <Route path="cast" element={<MovieCast />} />
+          <Route path="reviews" element={<MovieReviews />} />
         </Route>
 
         <Route path="*" element={<NotFoundPage />} />
