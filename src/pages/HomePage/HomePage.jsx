@@ -8,18 +8,18 @@ const HomePage = () => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
-    setIsLoading(true);
-    try {
-      const getData = async () => {
+    const getData = async () => {
+      try {
+        setIsLoading(true);
         const data = await fetchTrendingMovies();
         setMovies(data);
-      };
-      getData;
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setIsLoading(false);
-    }
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    getData();
   }, []);
   return (
     <div>

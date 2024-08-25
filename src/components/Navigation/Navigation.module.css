@@ -3,11 +3,27 @@
     gap: 20px;
 }
 
+li {
+    list-style: none;
+}
+
+.header {
+    background-color: #128cef;
+    color: white;
+    font-size: 28px;
+    padding: 10px;
+}
+
+.nav {
+    display: flex;
+    gap: 15px;
+}
+
 .link {
     font-size: 20px;
-    color: #f3ecec;
+    color: #b20606;
 }
 
 .active {
-    color: rgb(148, 102, 173);
+    color: rgb(229, 234, 228);
 }

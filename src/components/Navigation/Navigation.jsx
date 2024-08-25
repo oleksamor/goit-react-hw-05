@@ -8,7 +8,7 @@ const buildLinkClass = ({ isActive }) => {
 
 const Navigation = () => {
   return (
-    <div>
+    <header className={s.header}>
       <nav>
         <ul className={s.list}>
           <li className={s.item}>
@@ -23,7 +23,7 @@ const Navigation = () => {
           </li>
         </ul>
       </nav>
-    </div>
+    </header>
   );
 };
 

@@ -9,10 +9,9 @@ import { useSearchParams } from "react-router-dom";
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
-
   const filterValue = searchParams.get("query") ?? "";
 
-  const onSubmit = (newValue) => {
+  const onSubmit = (ç) => {
     setSearchParams({ query: newValue });
   };
 

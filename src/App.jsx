@@ -1,6 +1,6 @@
 import "./App.css";
 import Navigation from "./components/Navigation/Navigation";
-import { lazy, Suspense } from "react";
+import { lazy } from "react";
 import { Routes, Route, NavLink } from "react-router-dom";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
@@ -15,12 +15,10 @@ const MovieReviews = lazy(() =>
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 
 function App() {
-  // const [count, setCount] = useState(0);
-
   return (
     <div>
       <Navigation />
-      <Suspense fallback={"Loading..."}></Suspense>
+
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/movies" element={<MoviesPage />} />

@@ -1,6 +1,6 @@
 import s from "./SearchBar.module.css";
 
-const SearchBar = ({ onSubmit, filterValue }) => {
+const SearchBar = ({ filterValue, onSubmit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const value = e.target.elements.search.value.trim();
