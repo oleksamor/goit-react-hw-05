@@ -1,7 +1,13 @@
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useState } from "react";
-import { useParams, NavLink, Outlet } from "react-router-dom";
+import {
+  useParams,
+  NavLink,
+  Outlet,
+  useLocation,
+  Link,
+} from "react-router-dom";
 import { fetchMoviesById } from "../../services/api";
 import Loader from "../../components/Loader/Loader.jsx";
 import s from "./MovieDetailsPage.module.css";
@@ -9,7 +15,7 @@ import s from "./MovieDetailsPage.module.css";
 const MovieDetailsPage = () => {
   const params = useParams();
   const [movie, setMovie] = useState(null);
-  // const location = useLocation();
+  const location = useLocation();
   const goBackRef = useRef(location?.state || "/users");
   const defaultImg =
     "<https://cs13.pikabu.ru/post_img/big/2023/09/11/5/1694416670162565263.jpg>";

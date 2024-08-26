@@ -11,8 +11,8 @@ const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const filterValue = searchParams.get("query") ?? "";
 
-  const onSubmit = (ç) => {
-    setSearchParams({ query: newValue });
+  const onSubmit = (filterValue) => {
+    setSearchParams({ query: filterValue });
   };
 
   useEffect(() => {

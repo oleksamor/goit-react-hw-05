@@ -1,6 +1,6 @@
 import "./App.css";
 import Navigation from "./components/Navigation/Navigation";
-import { lazy } from "react";
+import { lazy, Suspense } from "react";
 import { Routes, Route, NavLink } from "react-router-dom";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
@@ -18,18 +18,19 @@ function App() {
   return (
     <div>
       <Navigation />
+      <Suspense fallback={<h2>LOADING YOUR COMPONENT!</h2>}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/movies" element={<MoviesPage />} />
 
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/movies" element={<MoviesPage />} />
+          <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
+            <Route path="cast" element={<MovieCast />} />
+            <Route path="reviews" element={<MovieReviews />} />
+          </Route>
 
-        <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
-          <Route path="cast" element={<MovieCast />} />
-          <Route path="reviews" element={<MovieReviews />} />
-        </Route>
-
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Suspense>
     </div>
   );
 }

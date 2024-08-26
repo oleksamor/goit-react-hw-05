@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const fetchMovies = async (searchValue = "Lion King") => {
+export const fetchMovies = async (searchValue) => {
   const url = "https://api.themoviedb.org/3/search/movie";
 
   const options = {
