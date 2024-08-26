@@ -26,3 +26,8 @@
     flex-wrap: wrap;
     gap: 40px;
 }
+
+.link {
+    color: #f16262;
+    text-align: center;
+}

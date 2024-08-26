@@ -11,14 +11,15 @@ const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const filterValue = searchParams.get("query") ?? "";
 
-  const onSubmit = (filterValue) => {
-    setSearchParams({ query: filterValue });
+  const onSubmit = (newValue) => {
+    if (newValue.trim() === "") return;
+    setSearchParams({ query: newValue });
   };
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const data = await fetchMovies();
+        const data = await fetchMovies(filterValue);
         setMovies(data);
       } catch (error) {
         console.log(error);
