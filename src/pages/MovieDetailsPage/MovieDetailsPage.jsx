@@ -18,7 +18,7 @@ const MovieDetailsPage = () => {
   const location = useLocation();
   const goBackRef = useRef(location?.state || "/movies");
   const defaultImg =
-    "<https://cs13.pikabu.ru/post_img/big/2023/09/11/5/1694416670162565263.jpg>";
+    "https://static5.depositphotos.com/1000270/486/i/450/depositphotos_4869272-stock-photo-bengal-cat-light-brown-cream.jpg";
   useEffect(() => {
     fetchMoviesById(params.movieId).then((data) => setMovie(data));
   }, [params.movieId]);
