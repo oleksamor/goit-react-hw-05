@@ -16,16 +16,12 @@ const MovieDetailsPage = () => {
   const params = useParams();
   const [movie, setMovie] = useState(null);
   const location = useLocation();
-  const goBackRef = useRef(location?.state || "/users");
+  const goBackRef = useRef(location?.state || "/movies");
   const defaultImg =
     "<https://cs13.pikabu.ru/post_img/big/2023/09/11/5/1694416670162565263.jpg>";
   useEffect(() => {
     fetchMoviesById(params.movieId).then((data) => setMovie(data));
   }, [params.movieId]);
-  if (!movie) {
-    <Loader />;
-    return;
-  }
 
   if (!movie) {
     return <Loader />;
